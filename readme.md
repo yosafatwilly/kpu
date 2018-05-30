@@ -1,7 +1,7 @@
 <h1><strong>Proyek Teknik Informatika - Universitas Sanata Dharma</strong></h1>
 <h4>Dosen Pengampu  :</h4>
 <ul>
-  <li>Puspa</li>
+  <li>Puspaningtyas Sanjoyo Adi S.T., M.T.</li>
 </ul>
 <h4>Anggota         :</h4>
 <ul>
