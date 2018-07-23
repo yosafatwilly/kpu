@@ -1,4 +1,4 @@
-<h1><strong>Proyek Teknik Informatika - Universitas Sanata Dharma</strong></h1>
+<h1><strong>Proyek Teknologi Informasi - Universitas Sanata Dharma</strong></h1>
 <h4>Dosen Pengampu  :</h4>
 <ul>
   <li>Puspaningtyas Sanjoyo Adi S.T., M.T.</li>
