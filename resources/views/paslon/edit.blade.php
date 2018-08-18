@@ -21,13 +21,22 @@
                                     </div>
                                     <div class="fileinput-preview fileinput-exists thumbnail img-no-padding" style="max-width: 370px; max-height: 250px;"></div>
                                     <div>
-                                        <span class="btn btn-outline-default btn-round btn-file"><span class="fileinput-new">Pilih Foto</span><span class="fileinput-exists">Change</span><input type="file" name="foto_paslon"></span>
+                                        <span class="btn btn-outline-default btn-round btn-file"><span class="fileinput-new">Pilih Foto</span><span class="fileinput-exists">Change</span><input type="file"  multiple accept="image/*" name="foto_paslon"></span>
                                         <a href="#paper-kit" class="btn btn-link btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-7 col-sm-7">
+                            @if ($errors->any())
+                            <ul>
+                                <div class="text-danger" style="margin-top: -20px">
+                                    @foreach($errors->all() as $error)
+                                    <li><strong>{{ $error }}</strong></li>
+                                    @endforeach
+                                </div>
+                            </ul>
+                            @endif
                             <div class="form-group">
                                 <h6>Ketua</h6>
                             </div>
@@ -38,7 +47,7 @@
                                 <input type="text" name="nim_ketua" value="{{ $paslon->nim_ketua }}" class="form-control border-input" required="true" placeholder="NIM">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="angkatan_ketua" value="{{ $paslon->angkatan_ketua }}" class="form-control border-input" required="true" placeholder="Angkatan">
+                                <input type="text" name="angkatan_ketua" value="{{ $paslon->angkatan_ketua }}" class="form-control border-input" required="true" placeholder="Angkatan | Ex : 2015">
                             </div>
                             <div class="form-group">
                                 <h6>Program Studi <span class="icon-danger">*</span></h6>
@@ -115,11 +124,11 @@
                             </div>
                             <div class="form-group">
                                 <h6>Visi</h6>
-                                <textarea class="form-control" name="visi" placeholder="Visi" rows="13", maxlength="150" >{{ $paslon->visi }}</textarea>
+                                <textarea class="form-control" name="visi" placeholder="Visi" rows="13" maxlength="1000" >{{ $paslon->visi }}</textarea>
                             </div>
                             <div class="form-group">
                                 <h6>Misi</h6>
-                                <textarea class="form-control" name="misi" placeholder="Misi" rows="13", maxlength="150" >{{ $paslon->misi }}</textarea>
+                                <textarea class="form-control" name="misi" placeholder="Misi" rows="13" maxlength="1000" >{{ $paslon->misi }}</textarea>
                             </div>
                         </div>
                     </div>

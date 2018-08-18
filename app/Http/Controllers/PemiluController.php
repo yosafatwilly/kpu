@@ -12,6 +12,7 @@ use Auth;
 use Mail;
 use App\Mail\TokenPemilu;
 
+
 class PemiluController extends Controller {
 
     /**
@@ -86,7 +87,7 @@ class PemiluController extends Controller {
     protected $validationPemiluRules = [
         'tema_pemilu' => 'required',
         'penyelenggara' => 'required',
-        'periode' => 'required',
+        'periode' => 'required|date_format:"Y"',
         'start_daftar' => 'required|date',
         'end_daftar' => 'required|date|after:start_daftar',
         'start_pemilu' => 'required|date|after:start_daftar',
@@ -95,11 +96,11 @@ class PemiluController extends Controller {
     protected $validationPaslonRules = [
         'nama_ketua.*' => 'required',
         'nim_ketua.*' => 'required|min:9|max:9',
-        'angkatan_ketua.*' => 'required',
+        'angkatan_ketua.*' => 'required|date_format:"Y"',
         'jurusan_ketua.*' => 'required',
         'nama_wakil.*' => 'required',
         'nim_wakil.*' => 'required|min:9|max:9',
-        'angkatan_wakil.*' => 'required',
+        'angkatan_wakil.*' => 'required|date_format:"Y"',
         'jurusan_wakil.*' => 'required',
         'visi.*' => 'required',
         'misi.*' => 'required',
@@ -117,7 +118,7 @@ class PemiluController extends Controller {
 
         $id = $this->storePemilu($data);
         $this->storePaslon($data, $id);
-        return redirect()->route('pemilu.index')
+        return redirect()->route('pemilu.show', $id)
                         ->with('flash_message', 'Pemilu berhasil dibuat.');
 //        dd($data);
     }

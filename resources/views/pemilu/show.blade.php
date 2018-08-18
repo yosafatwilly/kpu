@@ -48,9 +48,9 @@
                             </div>
                             <div class="col-md-7 col-sm-6 col-6">
                                 @if (\Carbon\Carbon::today()->gte(\Carbon\Carbon::parse($pemilu->start_pemilu)) AND (\Carbon\Carbon::parse($pemilu->end_pemilu)->gte(\Carbon\Carbon::today())))
-                                <p class="text-success">{{ Carbon\Carbon::parse($pemilu->start_permilu)->format('d M Y') }} - {{ Carbon\Carbon::parse($pemilu->end_pemilu)->format('d M Y') }}</p>
+                                <p class="text-success">{{ Carbon\Carbon::parse($pemilu->start_pemilu)->format('d M Y') }} - {{ Carbon\Carbon::parse($pemilu->end_pemilu)->format('d M Y') }}</p>
                                 @else
-                                <p class="text-danger">{{ Carbon\Carbon::parse($pemilu->start_permilu)->format('d M Y') }} - {{ Carbon\Carbon::parse($pemilu->end_pemilu)->format('d M Y') }}</p>
+                                <p class="text-danger">{{ Carbon\Carbon::parse($pemilu->start_pemilu)->format('d M Y') }} - {{ Carbon\Carbon::parse($pemilu->end_pemilu)->format('d M Y') }}</p>
                                 @endif
                             </div>
                         </div>
@@ -191,6 +191,35 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p><strong>VISI</strong></p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-12">
+                                                <p>{{ $p->visi}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p><strong>MISI</strong></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-12">
+                                                <p>{{ $p->misi}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <hr>
@@ -210,6 +239,8 @@
                         @if(Auth::user())
                         @if (\Carbon\Carbon::today()->gte(\Carbon\Carbon::parse($pemilu->start_daftar)) AND (\Carbon\Carbon::parse($pemilu->end_daftar)->gte(\Carbon\Carbon::today())))
                         <button class="btn btn-outline-default btn-block btn-round" type="button" data-toggle="modal" data-target="#modal"> <span class="nc-icon nc-simple-add" aria-hidden="true"></span> &nbsp; Daftar sebagai Pemilih</button>
+                        @elseif (\Carbon\Carbon::today()->gt(\Carbon\Carbon::parse($pemilu->end_pemilu)))
+                        <h6 class="text-center"><a href="{{ route('result.show', $pemilu->id) }}">Lihat Hasil Pemilu</a></h6>
                         @elseif (\Carbon\Carbon::today()->gte(\Carbon\Carbon::parse($pemilu->start_daftar)))
                         <h6 class="text-danger text-center">Pendaftaran calon pemilih sudah ditutup.</h6>
                         @else

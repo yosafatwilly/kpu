@@ -24,7 +24,7 @@ class ResultController extends Controller {
     }
 
     public function index() {
-        $sql = "SELECT * FROM pemilu WHERE id IN (SELECT DISTINCT pemilu_id FROM vote) ORDER BY start_pemilu DESC";
+        $sql = "SELECT * FROM pemilu WHERE id IN (SELECT DISTINCT pemilu_id FROM vote) AND end_pemilu < CURDATE() ORDER BY start_pemilu DESC ";
         $pemilu = DB::select($sql);
         return view('result.index', compact('pemilu'));
     }
@@ -42,7 +42,7 @@ class ResultController extends Controller {
         $tmp = DB::select($sql);
         $jumlah_pemilih = $tmp[0]->count;
         
-        $sql1 = "SELECT COUNT(*) AS count FROM VOTE WHERE pemilu_id = ".$id;
+        $sql1 = "SELECT COUNT(*) AS count FROM vote WHERE pemilu_id = ".$id;
         $tmp1 = DB::select($sql1);
         $jumlah_vote = $tmp1[0]->count;
         

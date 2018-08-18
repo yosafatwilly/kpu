@@ -10,6 +10,7 @@ use Illuminate\Validation\Rule;
 use Mail;
 use Auth;
 use App\Mail\sendPassword;
+use Session;
 
 class RegisterController extends Controller {
     /*
@@ -65,6 +66,7 @@ use RegistersUsers;
      * @return \App\User
      */
     protected function create(array $data) {
+        Session::flash('success_reg', '');
         $user = User::create([
                     'nim' => $data['nim'],
                     'nama' => $data['nama'],

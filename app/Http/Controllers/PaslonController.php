@@ -42,12 +42,12 @@ class PaslonController extends Controller {
      */
     protected $validationRules = [
         'nama_ketua' => 'required',
-        'nim_ketua' => 'required',
-        'angkatan_ketua' => 'required',
+        'nim_ketua' => 'required|min:9|max:9',
+        'angkatan_ketua' => 'required|date_format:"Y"',
         'jurusan_ketua' => 'required',
         'nama_wakil' => 'required',
-        'nim_wakil' => 'required',
-        'angkatan_wakil' => 'required',
+        'nim_wakil' => 'required|min:9|max:9',
+        'angkatan_wakil' => 'required|date_format:"Y"',
         'jurusan_wakil' => 'required',
         'visi' => 'required',
         'misi' => 'required',

@@ -57,7 +57,7 @@ class VoteController extends Controller {
             if ($validation->fails()) {
                 return redirect()->back()->with('flash_message_danger', 'Validation Error');
             }
-            DB::table('Vote')->insert(
+            DB::table('vote')->insert(
                     [
                         'paslon_id' => $request->paslon_id,
                         'pemilu_id' => $id,

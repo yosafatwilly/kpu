@@ -34,11 +34,21 @@
         <link href="{{ asset('jasny/css/jasny-bootstrap.css') }}" rel='stylesheet' />
         <link href="{{ asset('jasny/css/jasny-bootstrap.css.map') }}" rel='stylesheet' />
         <link href="{{ asset('jasny/css/jasny-bootstrap.min.css') }}" rel='stylesheet' />
-        
+
     </head>
     <body>
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent nav-down" color-on-scroll="500">
             @include('layouts.nav')
+            @if(Session::has('success_reg'))
+            <div class="alert" style="background-color: gainsboro">
+                <div class="container">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="nc-icon nc-simple-remove"></i>
+                    </button>
+                    <span>Anda berhasil mendaftar.</span>
+                </div>
+            </div>
+            @endif
         </nav>
 
         @yield('content')

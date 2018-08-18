@@ -18,12 +18,21 @@
                                 </div>
                                 <div class="fileinput-preview fileinput-exists thumbnail img-no-padding" style="max-width: 330px; max-height: 330px;"></div>
                                 <div>
-                                    <span class="btn btn-outline-default btn-round btn-file"><span class="fileinput-new">Pilih Logo</span><span class="fileinput-exists">Change</span><input type="file" name="logo"></span>
+                                    <span class="btn btn-outline-default btn-round btn-file"><span class="fileinput-new">Pilih Logo</span><span class="fileinput-exists">Change</span><input type="file" multiple accept="image/*" name="logo"></span>
                                     <a href="#paper-kit" class="btn btn-link btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-7 col-sm-7">
+                            @if ($errors->any())
+                            <ul>
+                                <div class="text-danger" style="margin-top: -20px">
+                                    @foreach($errors->all() as $error)
+                                    <li><strong>{{ $error }}</strong></li>
+                                    @endforeach
+                                </div>
+                            </ul>
+                            @endif
                             <div class="form-group">
                                 <h6>Tema Pemilu <span class="icon-danger">*</span></h6>
                                 <input type="text" name="tema_pemilu" value="{{ $pemilu->tema_pemilu }}" class="form-control border-input" required="true" placeholder="Tema Pemilu">
@@ -37,7 +46,7 @@
                                     <div class="col-md-6 col-sm-6">
                                         <h6>Durasi Mendaftar<span class="icon-danger">*</span></h6>
                                         <div class='input-group date'>
-                                            <input type='text' class="form-control datetimepicker" name="start_daftar" value="{{ \Carbon\Carbon::parse($pemilu->start_daftar)->format('d-m-Y')}}" placeholder="Start Date" />
+                                            <input type='text' class="form-control datetimepicker" required="" name="start_daftar" value="{{ \Carbon\Carbon::parse($pemilu->start_daftar)->format('d-m-Y')}}" placeholder="Start Date" />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                             </span>
@@ -46,7 +55,7 @@
                                     <div class="col-md-6 col-sm-6">
                                         <h6>Sampai</h6>
                                         <div class='input-group date'>
-                                            <input type='text' class="form-control datetimepicker" name="end_daftar" value="{{ \Carbon\Carbon::parse($pemilu->end_daftar)->format('d-m-Y')}}" placeholder="End Date" />
+                                            <input type='text' class="form-control datetimepicker" required="" name="end_daftar" value="{{ \Carbon\Carbon::parse($pemilu->end_daftar)->format('d-m-Y')}}" placeholder="End Date" />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                             </span>
@@ -59,7 +68,7 @@
                                     <div class="col-md-6 col-sm-6">
                                         <h6>Durasi Pemilu<span class="icon-danger">*</span></h6>
                                         <div class='input-group date'>
-                                            <input type='text' class="form-control datetimepicker" name="start_pemilu" value="{{ \Carbon\Carbon::parse($pemilu->start_pemilu)->format('d-m-Y')}}" placeholder="Start Date" />
+                                            <input type='text' class="form-control datetimepicker" required="" name="start_pemilu" value="{{ \Carbon\Carbon::parse($pemilu->start_pemilu)->format('d-m-Y')}}" placeholder="Start Date" />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                             </span>
@@ -68,7 +77,7 @@
                                     <div class="col-md-6 col-sm-6">
                                         <h6>Sampai</h6>
                                         <div class='input-group date'>
-                                            <input type='text' class="form-control datetimepicker" name="end_pemilu" value="{{ \Carbon\Carbon::parse($pemilu->end_pemilu)->format('d-m-Y')}}" placeholder="End Date" />
+                                            <input type='text' class="form-control datetimepicker" required="" name="end_pemilu" value="{{ \Carbon\Carbon::parse($pemilu->end_pemilu)->format('d-m-Y')}}" placeholder="End Date" />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                             </span>
@@ -78,8 +87,8 @@
                             </div>
                             <div class="form-group">
                                 <h6>Penyelenggara<span class="icon-danger">*</span></h6>
-                                <select name="penyelenggara" id="penyelenggara" class="selectpicker" data-size="10" data-width="auto" data-style="btn btn-outline-default btn-round" data-menu-style="dropdown-default">
-                                    <option disabled selected> Pilih Penyelenggara</option>
+                                <select name="penyelenggara" required="" id="penyelenggara" class="selectpicker" data-size="10" data-width="auto" data-style="btn btn-outline-default btn-round" data-menu-style="dropdown-default">
+                                    <option value="" disabled selected> Pilih Penyelenggara</option>
                                     <option value="Komisi Pemilihan Umum USD">Komisi Pemilihan Umum USD</option>
                                     <option value="Bimbingan dan Konseling">Bimbingan dan Konseling</option>
                                     <option value="Pendidikan Agama Katolik">Pendidikan Agama Katolik</option>

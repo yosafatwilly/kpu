@@ -103,14 +103,6 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-5 col-sm-6 col-6">
-                                                <p>ID</p>
-                                            </div>
-                                            <div class="col-md-7 col-sm-6 col-6">
-                                                <p>{{ $p->id }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-5 col-sm-6 col-6">
                                                 <p>Nama</p>
                                             </div>
                                             <div class="col-md-7 col-sm-6 col-6">

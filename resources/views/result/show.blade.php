@@ -30,11 +30,7 @@
                                 <p>Durasi Pendaftaran Pemilih</p>
                             </div>
                             <div class="col-md-7 col-sm-6 col-6">
-                                @if (\Carbon\Carbon::today()->gte(\Carbon\Carbon::parse($pemilu->start_daftar)) AND (\Carbon\Carbon::parse($pemilu->end_daftar)->gte(\Carbon\Carbon::today())))
-                                <p class="text-success">{{ Carbon\Carbon::parse($pemilu->start_daftar)->format('d M Y') }} - {{ Carbon\Carbon::parse($pemilu->end_daftar)->format('d M Y') }}</p>
-                                @else
-                                <p class="text-danger">{{ Carbon\Carbon::parse($pemilu->start_daftar)->format('d M Y') }} - {{ Carbon\Carbon::parse($pemilu->end_daftar)->format('d M Y') }}</p>
-                                @endif
+                                <p>{{ Carbon\Carbon::parse($pemilu->start_daftar)->format('d M Y') }} - {{ Carbon\Carbon::parse($pemilu->end_daftar)->format('d M Y') }}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -42,11 +38,7 @@
                                 <p>Durasi Pemilu</p>
                             </div>
                             <div class="col-md-7 col-sm-6 col-6">
-                                @if (\Carbon\Carbon::today()->gte(\Carbon\Carbon::parse($pemilu->start_pemilu)) AND (\Carbon\Carbon::parse($pemilu->end_pemilu)->gte(\Carbon\Carbon::today())))
-                                <p class="text-success">{{ Carbon\Carbon::parse($pemilu->start_permilu)->format('d M Y') }} - {{ Carbon\Carbon::parse($pemilu->end_pemilu)->format('d M Y') }}</p>
-                                @else
-                                <p class="text-danger">{{ Carbon\Carbon::parse($pemilu->start_permilu)->format('d M Y') }} - {{ Carbon\Carbon::parse($pemilu->end_pemilu)->format('d M Y') }}</p>
-                                @endif
+                                <p>{{ Carbon\Carbon::parse($pemilu->start_permilu)->format('d M Y') }} - {{ Carbon\Carbon::parse($pemilu->end_pemilu)->format('d M Y') }}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -115,14 +107,6 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <p><strong>KETUA</strong></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-5 col-sm-6 col-6">
-                                                <p>ID</p>
-                                            </div>
-                                            <div class="col-md-7 col-sm-6 col-6">
-                                                <p>{{ $p->id }}</p>
                                             </div>
                                         </div>
                                         <div class="row">

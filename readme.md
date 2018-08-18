@@ -1,16 +1,3 @@
-<h1><strong>Proyek Teknologi Informasi - Universitas Sanata Dharma</strong></h1>
-<h4>Dosen Pengampu  :</h4>
-<ul>
-  <li>Puspaningtyas Sanjoyo Adi S.T., M.T.</li>
-</ul>
-<h4>Anggota         :</h4>
-<ul>
-  <li>Yosafat Willy Christian (155314044)</li>
-  <li>Yulius Elfrisa (155314040)</li>
-  <li>Ignasius Gayoh Adi Jaya (155314043)</li>
-  <li>Fellia Febriani (155314046)</li>
-</ul>
-
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
