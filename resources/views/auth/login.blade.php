@@ -1,6 +1,6 @@
 @extends('layouts.app_home')
 @section('title', 'Login')
-@section('content')
+@section('content')     
 <div class="wrapper">
     <div class="page-header" style="background-image: url('assets/img/bg.jpg')">
         <div class="filter"></div>
