@@ -1,6 +1,6 @@
 @extends('layouts.app_section')
 
-@section('title', 'List Pemilu')
+@section('title', 'List Pemilu')    
 
 @section('content')
 <div class="section section-white">
